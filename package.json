@@ -1,0 +1,50 @@
+{
+  "name": "app_bundling_webpack",
+  "version": "1.0.0",
+  "description": "a simple typescript based app to try out application bundling using webpack",
+  "main": "index.js",
+  "scripts": {
+    "view:app": "live-server --open=./build --browser=chrome",
+    "clean:folder": "del-cli dist build",
+    "clean:js": "del-cli dist/**/*.js dist/**/*.map",
+    "build": "npm run clean:js && tsc",
+    "build:source": "npm run build && webpack",
+    "build:app": "npm run build:source && npm run view:app",
+    "build:dev": "npm run clean:folder && webpack-dev-server --hot --inline",
+    "test": "npm run clean:folder && webpack"
+  },
+  "keywords": [
+    "es6",
+    "bundling",
+    "webpack"
+  ],
+  "author": "pachumon",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jquery": "^3.3.1",
+    "@types/lodash": "^4.14.107",
+    "@types/webpack-env": "^1.13.6",
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "css-hot-loader": "^1.3.9",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.5",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  }
+}
