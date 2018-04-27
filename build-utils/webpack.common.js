@@ -5,7 +5,7 @@ var basePath = __dirname;
 const config = {
     entry: {
         vendor: ["jquery", "bootstrap", "bootstrap/dist/css/bootstrap.css", "font-awesome/css/font-awesome.css", "./src/style.css"],
-        app: "./src/bootstrapper.js"
+        app: "./src/main.jsx"
     },
     output: {
         path: commonPaths.outputPath,

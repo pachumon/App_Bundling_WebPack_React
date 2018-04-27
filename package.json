@@ -7,11 +7,11 @@
     "view:app": "live-server --open=./build --browser=chrome",
     "clean:folder": "del-cli dist build",
     "clean:js": "del-cli dist/**/*.js dist/**/*.map",
-    "build:tsc": "npm run clean:js && tsc",    
+    "build:tsc": "npm run clean:js && tsc",
     "build:app": "npm run build:prod && npm run view:app",
-    "build:devsvr": "npm run clean:folder && webpack-dev-server --hot --inline --env.env=dev",    
-    "build:prod":"npm run build -- --env.env=prod",    
-    "build:dev":"npm run build -- --env.env=dev",
+    "build:devsvr": "npm run clean:folder && webpack-dev-server --hot --inline --env.env=dev",
+    "build:prod": "npm run build -- --env.env=prod",
+    "build:dev": "npm run build -- --env.env=dev",
     "build": "npm run clean:folder && webpack"
   },
   "keywords": [

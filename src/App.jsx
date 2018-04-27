@@ -1,10 +1,36 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { HelloComponent } from './hello';
+import { NameEditComponent } from './nameEdit';
 
-export default class App extends React.Component {
-  render() {
-    return (
-     <div style={{textAlign: 'center'}}>
-        <h3>proceed with content development</h3>
-      </div>);
-  }
+
+export class App extends React.Component {
+    constructor(props) {
+        super(props);
+        const defaultUserName = 'defaultUserName';
+        this.state = { userName: defaultUserName, editingUserName: defaultUserName };
+
+        this.setUsernameState = this.setUsernameState.bind(this);
+        this.updateEditingName = this.updateEditingName.bind(this);
+    }
+
+    setUsernameState(newName) {
+        this.setState({ userName: this.state.editingUserName });
+    }
+
+    updateEditingName(editingName) {
+        this.setState({ editingUserName: editingName });
+    }
+
+    render() {
+        return (
+            <div>
+                <HelloComponent userName={this.state.userName} />
+                <NameEditComponent editingUserName={this.state.editingUserName}
+                    onEditingNameUpdated={this.updateEditingName}
+                    onNameUpdateRequest={this.setUsernameState} />
+            </div>
+        );
+    }
 }
+
